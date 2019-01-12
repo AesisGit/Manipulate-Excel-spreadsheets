@@ -1,6 +1,12 @@
 import openpyxl
 
 theFile = openpyxl.load_workbook('Customers1.xlsx')
-print(theFile.sheetnames)
-currentSheet = theFile['customers 1']
-print(currentSheet['B4'].value)
+allSheetNames = theFile.sheetnames
+
+print("All sheet names {} " .format(theFile.sheetnames))
+
+
+for x in allSheetNames:
+    print("Current sheet name is {}" .format(x))
+    currentSheet = theFile[x]
+    print(currentSheet['B4'].value)
