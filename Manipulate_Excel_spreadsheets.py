@@ -25,8 +25,27 @@ def get_all_values_by_cell_letter(letter):
         for column in letter:
             cell_name = "{}{}".format(column, row)
             #print(cell_name)
+            #take old data and send it to fixing
+            telephoneNo = fix_telephone_format(currentSheet[cell_name].value)
+            #put new data in cell
+
+
+            #print(letter + "1")
+            if cell_name == (letter + "1"):
+                #print(letter + "0")
+                #print("aaaaa")
+                currentSheet[cell_name].value = "telephone"
+            else:
+                currentSheet[cell_name].value = telephoneNo
+
+
+
             print("cell position {} has value {}".format(cell_name, currentSheet[cell_name].value))
 
+
+def fix_telephone_format(telephoneNo):
+    telephoneNo = 222
+    return telephoneNo
 
 
 for sheet in allSheetNames:
@@ -38,7 +57,7 @@ for sheet in allSheetNames:
 
     get_all_values_by_cell_letter(letter)
 
-
+    theFile.save("Customers2.xlsx")
 
 
 
