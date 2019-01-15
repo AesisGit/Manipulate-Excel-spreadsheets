@@ -1,10 +1,5 @@
 import openpyxl
 
-theFile = openpyxl.load_workbook('Customers1.xlsx')
-allSheetNames = theFile.sheetnames
-
-print("All sheet names {} " .format(theFile.sheetnames))
-
 
 def find_specific_cell():
     for row in range(1, currentSheet.max_row + 1):
@@ -28,15 +23,21 @@ def get_all_values_by_cell_letter(letter):
             print("cell position {} has value {}".format(cell_name, currentSheet[cell_name].value))
 
 
+def main():
+    theFile = openpyxl.load_workbook('Customers1.xlsx')
+    allSheetNames = theFile.sheetnames
 
-for sheet in allSheetNames:
-    print("Current sheet name is {}" .format(sheet))
-    currentSheet = theFile[sheet]
-    specificCellLetter = (find_specific_cell())
-    letter = get_column_letter(specificCellLetter)
+    print("All sheet names {} ".format(theFile.sheetnames))
 
 
-    get_all_values_by_cell_letter(letter)
+    for sheet in allSheetNames:
+        print("Current sheet name is {}" .format(sheet))
+        currentSheet = theFile[sheet]
+        specificCellLetter = (find_specific_cell())
+        letter = get_column_letter(specificCellLetter)
+
+
+        get_all_values_by_cell_letter(letter)
 
 
 
@@ -70,3 +71,5 @@ def read_all():
             print("cell position {} has value {}".format(cell_name, currentSheet[cell_name].value))
 
 
+if __name__=="__main__":
+    main()
