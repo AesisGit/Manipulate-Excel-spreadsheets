@@ -1,7 +1,24 @@
 import openpyxl
 
+def main():
+    theFile = openpyxl.load_workbook('Customers1.xlsx')
+    allSheetNames = theFile.sheetnames
 
-def find_specific_cell():
+    print("All sheet names {} ".format(theFile.sheetnames))
+
+
+    for sheet in allSheetNames:
+        print("Current sheet name is {}" .format(sheet))
+        currentSheet = theFile[sheet]
+        specificCellLetter = (find_specific_cell(currentSheet))
+        letter = get_column_letter(specificCellLetter)
+
+
+        get_all_values_by_cell_letter(letter, currentSheet)
+
+
+
+def find_specific_cell(currentSheet):
     for row in range(1, currentSheet.max_row + 1):
         for column in "ABCDEFGHIJKL":  # Here you can add or reduce the columns
             cell_name = "{}{}".format(column, row)
@@ -15,7 +32,7 @@ def get_column_letter(specificCellLetter):
     return letter
 
 
-def get_all_values_by_cell_letter(letter):
+def get_all_values_by_cell_letter(letter, currentSheet):
     for row in range(1, currentSheet.max_row + 1):
         for column in letter:
             cell_name = "{}{}".format(column, row)
@@ -23,21 +40,6 @@ def get_all_values_by_cell_letter(letter):
             print("cell position {} has value {}".format(cell_name, currentSheet[cell_name].value))
 
 
-def main():
-    theFile = openpyxl.load_workbook('Customers1.xlsx')
-    allSheetNames = theFile.sheetnames
-
-    print("All sheet names {} ".format(theFile.sheetnames))
-
-
-    for sheet in allSheetNames:
-        print("Current sheet name is {}" .format(sheet))
-        currentSheet = theFile[sheet]
-        specificCellLetter = (find_specific_cell())
-        letter = get_column_letter(specificCellLetter)
-
-
-        get_all_values_by_cell_letter(letter)
 
 
 
