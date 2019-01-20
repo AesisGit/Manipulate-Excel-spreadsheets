@@ -48,9 +48,22 @@ def removePlusFromTel(telephoneNo):
         telephoneNo = telephoneNo[1:len(telephoneNo)]
     return telephoneNo
 
+def removeCountryCode(telephoneNo):
+    if telephoneNo[0:2] == "46":
+        telephoneNo = telephoneNo[2:len(telephoneNo)]
+    elif telephoneNo[0:3] == "046":
+        telephoneNo = telephoneNo[3:len(telephoneNo)]
+    elif telephoneNo[0:4] == "0046":
+        telephoneNo = telephoneNo[4:len(telephoneNo)]
+    return telephoneNo
+
 def fix_telephone_format(telephoneNo):
     telephoneNo =removePlusFromTel(telephoneNo)
+    telephoneNo = removeCountryCode(telephoneNo)
+  #  telephoneNo = placeZeroAsFirst(telephoneNo)
     return telephoneNo
+
+
 
 
 for sheet in allSheetNames:
