@@ -65,11 +65,20 @@ def place_zero_at_first(telephoneNo):
         telephoneNo = "0" + telephoneNo
     return telephoneNo
 
+#Remove all non numeric characters from tel number
+def remove_all_characters(telephoneNo):
+    fixedTelNo = ""
+    for x in telephoneNo:
+        if x.isdigit():
+            fixedTelNo += x
+    return fixedTelNo
+
+#Main Fixning function that calls all other Fix functions
 def fix_telephone_format(telephoneNo):
     telephoneNo =remove_plus_from_tel(telephoneNo)
     telephoneNo = remove_country_code(telephoneNo)
     telephoneNo = place_zero_at_first(telephoneNo)
-    #telephoneNo = remove _all_characters(telephoneNo)
+    telephoneNo = remove_all_characters(telephoneNo)
     return telephoneNo
 
 
