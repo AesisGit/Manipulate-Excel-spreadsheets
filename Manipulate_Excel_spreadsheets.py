@@ -43,11 +43,13 @@ def get_all_values_by_cell_letter(letter):
             print("cell position {} has value {}".format(cell_name, currentSheet[cell_name].value))
 
 
+#Remove first + from the telephone number
 def removePlusFromTel(telephoneNo):
     if telephoneNo[0] == "+":
         telephoneNo = telephoneNo[1:len(telephoneNo)]
     return telephoneNo
 
+#Remove Swedish country code
 def removeCountryCode(telephoneNo):
     if telephoneNo[0:2] == "46":
         telephoneNo = telephoneNo[2:len(telephoneNo)]
@@ -57,10 +59,16 @@ def removeCountryCode(telephoneNo):
         telephoneNo = telephoneNo[4:len(telephoneNo)]
     return telephoneNo
 
+#IF 0 is missing at beggining place it
+def placeZeroAsFirst(telephoneNo):
+    if telephoneNo[0] != "0":
+        telephoneNo = "0" + telephoneNo
+    return telephoneNo
+
 def fix_telephone_format(telephoneNo):
     telephoneNo =removePlusFromTel(telephoneNo)
     telephoneNo = removeCountryCode(telephoneNo)
-  #  telephoneNo = placeZeroAsFirst(telephoneNo)
+    telephoneNo = placeZeroAsFirst(telephoneNo)
     return telephoneNo
 
 
