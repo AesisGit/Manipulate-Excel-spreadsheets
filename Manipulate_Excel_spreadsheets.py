@@ -44,13 +44,13 @@ def get_all_values_by_cell_letter(letter):
 
 
 #Remove first + from the telephone number
-def removePlusFromTel(telephoneNo):
+def remove_plus_from_tel(telephoneNo):
     if telephoneNo[0] == "+":
         telephoneNo = telephoneNo[1:len(telephoneNo)]
     return telephoneNo
 
 #Remove Swedish country code
-def removeCountryCode(telephoneNo):
+def remove_country_code(telephoneNo):
     if telephoneNo[0:2] == "46":
         telephoneNo = telephoneNo[2:len(telephoneNo)]
     elif telephoneNo[0:3] == "046":
@@ -60,15 +60,16 @@ def removeCountryCode(telephoneNo):
     return telephoneNo
 
 #IF 0 is missing at beggining place it
-def placeZeroAsFirst(telephoneNo):
+def place_zero_at_first(telephoneNo):
     if telephoneNo[0] != "0":
         telephoneNo = "0" + telephoneNo
     return telephoneNo
 
 def fix_telephone_format(telephoneNo):
-    telephoneNo =removePlusFromTel(telephoneNo)
-    telephoneNo = removeCountryCode(telephoneNo)
-    telephoneNo = placeZeroAsFirst(telephoneNo)
+    telephoneNo =remove_plus_from_tel(telephoneNo)
+    telephoneNo = remove_country_code(telephoneNo)
+    telephoneNo = place_zero_at_first(telephoneNo)
+    #telephoneNo = remove _all_characters(telephoneNo)
     return telephoneNo
 
 
@@ -86,5 +87,3 @@ for sheet in allSheetNames:
     theFile.save("Customers2.xlsx")
 
 
-
-#
