@@ -43,8 +43,13 @@ def get_all_values_by_cell_letter(letter):
             print("cell position {} has value {}".format(cell_name, currentSheet[cell_name].value))
 
 
+def removePlusFromTel(telephoneNo):
+    if telephoneNo[0] == "+":
+        telephoneNo = telephoneNo[1:len(telephoneNo)]
+    return telephoneNo
+
 def fix_telephone_format(telephoneNo):
-    telephoneNo = 222
+    telephoneNo =removePlusFromTel(telephoneNo)
     return telephoneNo
 
 
