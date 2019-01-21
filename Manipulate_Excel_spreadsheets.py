@@ -12,7 +12,7 @@ def find_specific_cell():
         for column in "ABCDEFGHIJKL":  # Here you can add or reduce the columns
             cell_name = "{}{}".format(column, row)
             if currentSheet[cell_name].value == "telephone":
-                print("cell position {} has value {}".format(cell_name, currentSheet[cell_name].value))
+                print("Specific cell on position: {} has value: {}".format(cell_name, currentSheet[cell_name].value))
                 return cell_name
 
 def get_column_letter(specificCellLetter):
@@ -41,7 +41,7 @@ def get_all_values_by_cell_letter(letter):
 
 
 
-            print("cell position {} has value {}".format(cell_name, currentSheet[cell_name].value))
+            print("Cell on position: {} has value: {}".format(cell_name, currentSheet[cell_name].value))
 
 
 #Main Fixning function that calls all other Fix functions
@@ -56,7 +56,7 @@ def fix_telephone_format(telephoneNo):
 
 
 for sheet in allSheetNames:
-    print("Current sheet name is {}" .format(sheet))
+    print("\n\nCurrent sheet name is ******* {} \n" .format(sheet))
     currentSheet = theFile[sheet]
     specificCellLetter = (find_specific_cell())
     letter = get_column_letter(specificCellLetter)
