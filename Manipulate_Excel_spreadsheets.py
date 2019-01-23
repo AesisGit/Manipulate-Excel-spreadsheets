@@ -46,6 +46,7 @@ def get_all_values_by_cell_letter(letter):
 
 #Main Fixning function that calls all other Fix functions
 def fix_telephone_format(telephoneNo):
+    telephoneNo = cleaningTelNum.remove_first_space_from_tel(telephoneNo)
     telephoneNo = cleaningTelNum.remove_plus_from_tel(telephoneNo)
     telephoneNo = cleaningTelNum.remove_country_code(telephoneNo)
     telephoneNo = cleaningTelNum.place_zero_at_first(telephoneNo)

@@ -1,4 +1,12 @@
 
+#Sometimes the first character is space (" ")
+def remove_first_space_from_tel(telephoneNo):
+    if telephoneNo[0] == " ":
+        telephoneNo = telephoneNo[1:len(telephoneNo)]
+    return telephoneNo
+
+
+
 #Remove first + from the telephone number
 def remove_plus_from_tel(telephoneNo):
     if telephoneNo[0] == "+":
