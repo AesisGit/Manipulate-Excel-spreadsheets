@@ -37,6 +37,6 @@ class CleningTelNumbersTestCase(unittest.TestCase):
        self.assertEqual(result, "099312132")
 
 
-def test_fix_telephone_format(self):
-    result = fix_telephone_format("+004609+öä'+9312*13..2")
-    self.assertEqual(result, "099312132")
+    def test_fix_telephone_format(self):
+        result = fix_telephone_format("+004609+öä'+9312*13..2")
+        self.assertEqual(result, "099312132")
