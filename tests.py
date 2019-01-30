@@ -1,5 +1,6 @@
 import unittest
 from cleaningTelNum import *
+from Manipulate_Excel_spreadsheets import fix_telephone_format
 
 class CleningTelNumbersTestCase(unittest.TestCase):
 
@@ -35,3 +36,7 @@ class CleningTelNumbersTestCase(unittest.TestCase):
        result = remove_all_characters("09+öä'+9312*13..2")
        self.assertEqual(result, "099312132")
 
+
+def test_fix_telephone_format(self):
+    result = fix_telephone_format("+004609+öä'+9312*13..2")
+    self.assertEqual(result, "099312132")
